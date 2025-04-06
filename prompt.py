@@ -13,14 +13,30 @@ The output format is limited to: "Score:...", where ... represents the omitted o
 Here is the image description, Only generate the decimal score and follow the restricted format. Do not generate additional analysis or explanation.
 Input:
 '''
-zero_single_proposal_prompt_en = '''
-Given an image and existing partial solution (not a complete answer), generate the correct next step to solve the problem.
-Please keep your response concise and limited to one reasoning step.
+# zero_single_proposal_prompt_en = '''
+# Given an image and existing partial solution (not a complete answer), generate the correct next step to solve the problem.
+# Please keep your response concise and limited to one reasoning step.
 
-The output format is strictly:
-"Next step: ..."
-Please follow the restricted format and be brief.
+# The output format is strictly:
+# "Next step: ..."
+# Please follow the restricted format and be brief.
+# '''
+zero_single_proposal_prompt_en = '''
+You are given an image and a partial solution (not a complete answer). Your task is to generate only the **next single reasoning step** required to solve the problem.
+
+⚠️ Do NOT provide multiple steps.
+⚠️ Do NOT explain the full solution.
+✅ Only one short and precise reasoning step is allowed.
+
+Strict output format:
+Next step: [your single reasoning step]
+
+Example:
+Next step: Substitute the known values into the equation.
+
+Now, write your answer.
 '''
+
 
 # critic_simplified = '''Given problem, image, image description, evaluate whether the reasoning steps can solve the provided problem and output a score. The score should be a decimal between 0 and 10. If all the steps are correct and the answer is calculated, the score is 10. The closer the steps are to the final answer, the closer the score is to 10. If there is no correct answer, never give a score higher than 9."
 # Now, given a problem, image, image description and the provided steps, provide only the decimal score entirely based on the input image, image description,reasoning steps provided.
