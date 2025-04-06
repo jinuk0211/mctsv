@@ -80,10 +80,9 @@ def get_next_steps_expand(node: treeNode, mcts_task):
         proposal = ''
         cnt = 3
         while not proposal and cnt:
-            if node.y == '':
-                proposal = mcts_task.get_first_step(node.y)
-            else:
-                proposal = mcts_task.get_next_step(node.y, node.depth + 1)
+     
+            
+            proposal = mcts_task.get_next_step(node.y, node.depth + 1)
             cnt -= 1
         if not proposal:
             continue
@@ -212,10 +211,8 @@ def get_next_steps_roll(y: str, step_n: int, mcts_task):
          proposal = ''
          cnt = 3
          while not proposal and cnt:
-            if y == '':
-                proposal = mcts_task.get_first_step(y)
-            else:
-                proposal = mcts_task.get_next_step(y, step_n) #다음단계 생성하는 함수
+    
+            proposal = mcts_task.get_next_step(y, step_n) #다음단계 생성하는 함수
             cnt -= 1
          if not proposal:
              continue
