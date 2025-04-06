@@ -1,0 +1,4 @@
+qwen-vl-utils
+flash-attn --no-build-isolation
+accelerate>=0.26.0
+easydict
