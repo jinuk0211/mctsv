@@ -102,7 +102,7 @@ def run(args):
             
             
     dataset.data = dataset.data.drop(columns=['image'])  
-    output_path = '/workspace/last/dataset.xlsx'
+    output_path = '/workspace/mctsv/dataset.xlsx'
     dataset.data.to_excel(output_path, index=False)
 
     judge_kwargs = {
@@ -111,10 +111,10 @@ def run(args):
         'retry': 3,
         'model': "gpt-4o-mini"}
 
-    eval_results = dataset.evaluate('/workspace/last/dataset.xlsx', **judge_kwargs)
+    eval_results = dataset.evaluate('/workspace/mctsv/dataset.xlsx', **judge_kwargs)
     if True:
         dataset.data['solution'] = output['solution']
-        output_path = '/workspace/last/dataset_include_solution.xlsx'
+        output_path = '/workspace/mctsv/dataset_include_solution.xlsx'
         dataset.data.to_excel(output_path, index=False)
     print(eval_results)
 
