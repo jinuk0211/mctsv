@@ -14,7 +14,7 @@ Here is the image description, Only generate the decimal score and follow the re
 Input:
 '''
 zero_single_proposal_prompt_en = '''
-Given an image, image description, and an existing partial solution (not a complete answer), generate the correct next step to solve the problem.
+Given an image and existing partial solution (not a complete answer), generate the correct next step to solve the problem.
 Please keep your response concise and limited to one reasoning step.
 
 The output format is strictly:
@@ -29,14 +29,14 @@ Please follow the restricted format and be brief.
 # '''
 # critic_simplified = '''Given problem, image, image description, give the score between 0 and 10 whether the reasoning steps can solve the problem. If there is no correct answer, never give a score higher than 9."
 # The output format is limited to: "Score:...", where ... represents the omitted decimal score, which you need to fill in. Do not generate additional reasoning step or anaylsis. Follow the output format.'''
-critic_simplified = '''Given the problem, image, image description, and reasoning steps, evaluate whether the reasoning steps are sufficient to solve the problem.
+critic_simplified = '''Given the problem, image, and reasoning steps, evaluate whether the reasoning steps are sufficient to solve the problem.
 If there is no correct answer, never assign a score higher than 9.
 Output format must be: "Score: ...", where ... is the decimal score.
 Do not include any additional explanation or analysis. Follow the output format exactly.'''
 
 
 single_reflection_prompt_simple_en = '''
-Given a problem, image, image description and reasoning steps (not necessarily complete), you need to determine whether the given steps have completely solved the problem.
+Given a problem, image, and reasoning steps (not necessarily complete), you need to determine whether the given steps have completely solved the problem.
 If the given steps have provided the final answer to the question, then you should generate "Problem solved" and nothing else.
 If the given steps have not yet calculated the answer to the question or have not finished reasoning, then please generate "Problem unsolved" 
 Do not generate additional reasoning step or anaylsis, please generate either "Problem solved" or "Problem unsolved". 
